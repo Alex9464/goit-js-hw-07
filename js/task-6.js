@@ -17,14 +17,17 @@ function getRandomHexColor() {
 }
 
 function createBoxes(amount) {
+    boxes.innerHTML = "";
+    const fragment = document.createDocumentFragment();
     let size = 30;
     for (let i = 0; i < amount; i += 1, size += 10) {
         const createBoxes = document.createElement("div");
         createBoxes.style.width = size + 'px';
         createBoxes.style.height = size + 'px';
         createBoxes.style.backgroundColor = getRandomHexColor();
-        boxes.append(createBoxes);
+        fragment.appendChild(createBoxes);
     }
+    boxes.appendChild(fragment);
 }
 
 destroyBtn.addEventListener("click", () => {
